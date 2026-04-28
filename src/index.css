@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer utilities {
+  .neon-glow-purple {
+    text-shadow: 0 0 10px rgba(168, 85, 247, 0.5), 0 0 20px rgba(168, 85, 247, 0.3);
+  }
+  .neon-glow-cyan {
+    text-shadow: 0 0 10px rgba(34, 211, 238, 0.5), 0 0 20px rgba(34, 211, 238, 0.3);
+  }
+  .frosted-glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+}
+
+body {
+  @apply bg-[#050505] text-slate-100 antialiased overflow-hidden;
+}
+
+/* Background Mesh Gradients */
+.mesh-gradients {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.mesh-gradients div:nth-child(1) {
+  @apply absolute -top-48 -left-48 w-96 h-96 bg-cyan-500/20 rounded-full blur-[120px];
+}
+
+.mesh-gradients div:nth-child(2) {
+  @apply absolute -bottom-48 -right-48 w-96 h-96 bg-purple-600/20 rounded-full blur-[120px];
+}
+
+.mesh-gradients div:nth-child(3) {
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-pink-500/10 rounded-full blur-[150px];
+}
+
+/* Custom scrollbar for that clean look */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+}
